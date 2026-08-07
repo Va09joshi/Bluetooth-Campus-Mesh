@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* Color Palette */
+  --color-primary: #D32F2F;
+  --color-primary-hover: #B71C1C;
+  --color-secondary: #EF5350;
+  --color-background: #FFFFFF;
+  --color-surface: #FAFAFA;
+  --color-border: #E5E7EB;
+  --color-primary-text: #111827;
+  --color-secondary-text: #6B7280;
+  --color-muted: #9CA3AF;
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+
+  /* Typography */
+  --font-family: 'Notion Sans', 'Inter', -apple-system, system-ui, 'Segoe UI', Helvetica, sans-serif;
+  
+  --font-hero-display: 600 80px/1.1 var(--font-family);
+  --font-display-large: 600 56px/1.1 var(--font-family);
+  --font-h1: 600 48px/1.2 var(--font-family);
+  --font-h2: 600 36px/1.2 var(--font-family);
+  --font-h3: 600 28px/1.3 var(--font-family);
+  --font-h4: 600 22px/1.3 var(--font-family);
+  --font-h5: 600 18px/1.4 var(--font-family);
+  --font-subtitle: 400 18px/1.5 var(--font-family);
+  --font-body: 400 16px/1.5 var(--font-family);
+  --font-small: 400 14px/1.5 var(--font-family);
+  --font-button: 500 14px/1.5 var(--font-family);
+
+  /* Spacing System (8px based) */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --space-10: 80px;
+  --space-12: 96px;
+  --space-16: 128px;
+  --space-20: 160px;
+
+  /* Grid */
+  --container-max-width: 1200px;
+  --grid-gap: 24px;
+  
+  /* Shadows & Borders */
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.06);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease-out;
+  --transition-default: 0.25s ease-out;
+  --transition-slow: 0.4s ease-out;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  font: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-primary-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Classes */
+.hero-display { font: var(--font-hero-display); letter-spacing: -0.02em; }
+.display-large { font: var(--font-display-large); letter-spacing: -0.02em; }
+.h1 { font: var(--font-h1); letter-spacing: -0.01em; }
+.h2 { font: var(--font-h2); letter-spacing: -0.01em; }
+.h3 { font: var(--font-h3); letter-spacing: -0.01em; }
+.h4 { font: var(--font-h4); }
+.h5 { font: var(--font-h5); }
+.subtitle { font: var(--font-subtitle); color: var(--color-secondary-text); }
+.body { font: var(--font-body); }
+.small { font: var(--font-small); color: var(--color-muted); }
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+
+.section {
+  padding: var(--space-16) 0;
+}
+
+/* Grid System */
+.grid {
+  display: grid;
+  gap: var(--grid-gap);
+}
+.grid-12 { grid-template-columns: repeat(12, 1fr); }
+.grid-8 { grid-template-columns: repeat(8, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .hero-display { font-size: 64px; }
+  .display-large { font-size: 48px; }
+  .section { padding: var(--space-12) 0; }
+  .grid-12 { grid-template-columns: repeat(8, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .hero-display { font-size: 48px; }
+  .display-large { font-size: 36px; }
+  .h1 { font-size: 36px; }
+  .h2 { font-size: 28px; }
+  .section { padding: var(--space-8) 0; }
+  .grid-12, .grid-8 { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .hero-display { font-size: 40px; }
+  .grid-12, .grid-8, .grid-4 { grid-template-columns: 1fr; }
+}
+
+/* Base Styles */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
