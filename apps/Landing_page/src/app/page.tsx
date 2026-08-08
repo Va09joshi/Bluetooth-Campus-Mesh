@@ -3,7 +3,8 @@
 import {
   ArrowRight, ArrowLeft, Bluetooth, CheckCircle, ChevronRight, ChevronDown, FileText,
   MapPin, MessageSquare, Radio, ShieldAlert, Smartphone,
-  Users, UserCheck, Zap, Server, Activity, Clock, Plus, Star, Quote, Menu, X
+  Users, UserCheck, Zap, Server, Activity, Clock, Plus, Star, Quote, Menu, X,
+  GraduationCap, Briefcase, Map, Building, Monitor
 } from 'lucide-react';
 
 const GithubIcon = ({ size = 20 }: { size?: number }) => (
@@ -12,14 +13,36 @@ const GithubIcon = ({ size = 20 }: { size?: number }) => (
     <path d="M9 18c-4.51 2-5-2-7-2" />
   </svg>
 );
-import { useRef, useState } from 'react';
+
+import { useRef, useState, useEffect } from 'react';
 import './page.css';
 
 export default function Home() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const scrollPrev = () => {
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, observerOptions);
+
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
+    };
+  }, []); const scrollPrev = () => {
     trackRef.current?.scrollBy({ left: -408, behavior: 'smooth' });
   };
 
@@ -78,9 +101,9 @@ export default function Home() {
       {/* Hero Section */}
       <section className="section hero-section">
         <div className="container hero-content relative-hero">
-          <h1 className="display-large hero-heading-behind">
-            Connect the campus.<br />
-            <span className="text-gradient">No internet required.</span>
+          <h1 className="display-large hero-heading-behind text-center">
+            Connect the campus<br />
+            <span className="text-gradient">No internet required</span>
           </h1>
           <p className="subtitle hero-subtitle" style={{ position: 'relative', zIndex: 10 }}>
             Empower your institution with resilient, offline-first communication.
@@ -103,11 +126,11 @@ export default function Home() {
         <div className="container">
           <p className="small text-center">EMPOWERING CAMPUS COMMUNITIES</p>
           <div className="logo-grid">
-            <div className="company-logo">Students</div>
-            <div className="company-logo">Faculty</div>
-            <div className="company-logo">Visitors</div>
-            <div className="company-logo">Administration</div>
-            <div className="company-logo">IT Teams</div>
+            <div className="company-logo animate-on-scroll"><GraduationCap size={26} /> Students</div>
+            <div className="company-logo animate-on-scroll"><Briefcase size={26} /> Faculty</div>
+            <div className="company-logo animate-on-scroll"><Map size={26} /> Visitors</div>
+            <div className="company-logo animate-on-scroll"><Building size={26} /> Administration</div>
+            <div className="company-logo animate-on-scroll"><Monitor size={26} /> IT Teams</div>
           </div>
         </div>
       </section>
