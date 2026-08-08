@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Righteous&display=swap');
 
 :root {
   /* Color Palette */
@@ -15,7 +15,7 @@
   --color-warning: #F59E0B;
 
   /* Typography */
-  --font-family: 'Notion Sans', 'Inter', -apple-system, system-ui, 'Segoe UI', Helvetica, sans-serif;
+  --font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, system-ui, 'Segoe UI', Helvetica, sans-serif;
   
   --font-hero-display: 600 80px/1.1 var(--font-family);
   --font-display-large: 600 56px/1.1 var(--font-family);

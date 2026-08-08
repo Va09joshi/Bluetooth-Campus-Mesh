@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Premium Product - Enterprise Software',
-  description: 'The modern standard for enterprise software.',
+  title: 'CampusMesh',
+  description: 'Connecting campuses with resilient, offline-first mesh networks.',
 }
 
 export default function RootLayout({
